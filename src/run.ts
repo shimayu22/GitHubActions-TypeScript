@@ -1,6 +1,5 @@
 import * as core from '@actions/core'
 import * as github from '@actions/github'
-import {GitHub} from '@actions/github/lib/utils'
 import * as Webhooks from '@octokit/webhooks'
 
 export async function run(): Promise<void> {
@@ -20,7 +19,7 @@ export async function run(): Promise<void> {
     core.debug(`message: ${message}`)
 
     // Create a GitHub client.
-    const client = new GitHub([token])
+    const client = github.getOctokit(token)
 
     // Get owner and repo from context
     const owner = github.context.repo.owner

@@ -51,7 +51,6 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.run = void 0;
 const core = __importStar(__webpack_require__(186));
 const github = __importStar(__webpack_require__(438));
-const utils_1 = __webpack_require__(30);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -68,7 +67,7 @@ function run() {
             const message = core.getInput('message');
             core.debug(`message: ${message}`);
             // Create a GitHub client.
-            const client = new utils_1.GitHub([token]);
+            const client = github.getOctokit(token);
             // Get owner and repo from context
             const owner = github.context.repo.owner;
             const repo = github.context.repo.repo;
