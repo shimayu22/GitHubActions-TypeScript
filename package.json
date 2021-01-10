@@ -1,8 +1,8 @@
 {
-  "name": "typescript-action",
-  "version": "0.0.0",
+  "name": "pr-comment",
+  "version": "1.0.0",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "GitHub Action to comment on PR",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
@@ -11,21 +11,22 @@
     "lint": "eslint src/**/*.ts",
     "package": "ncc build --source-map --license licenses.txt",
     "test": "jest",
-    "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
+    "all": "npm ci && npm run build && npm run format && npm run lint && npm run package && npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com//shimayu22/GitHubActions-TypeScript.git"
   },
   "keywords": [
     "actions",
-    "node",
-    "setup"
+    "node"
   ],
-  "author": "",
+  "author": "shimayu22",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.6"
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@octokit/webhooks": "^7.21.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",
@@ -38,6 +39,7 @@
     "jest": "^24.9.0",
     "jest-circus": "^26.4.2",
     "js-yaml": "^3.14.0",
+    "nock": "^13.0.5",
     "prettier": "2.1.1",
     "ts-jest": "^24.3.0",
     "typescript": "^4.0.2"
